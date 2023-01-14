@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="vino"
+    [ngClass] = 'wineClasses' 
+    *ngIf="wine!==null">
+        <img class="miniatura" src="{{'assets/img/' + wine.imageUrl}}" alt='{{wine.name}}'>
+        <h2>{{wine.name}}</h2>
+        <p class="preu">Preu: {{wine.price.toFixed(2)}}</p>
+        <div *ngIf="wine.isOnSale" class="pieVino">
+            <div class="unitsContainer">
+                <button 
+                (click)="subtractQuantity()"
+                *ngIf="wine.quantityInCart>0"
+                >-</button>
+                <p class="units" >{{wine.quantityInCart}}</p>
+                <button (click)="addQuantity()">+</button>
+            </div>
+            <div class="total">
+                TOTAL: {{wine.total.toFixed(2)}}
+            </div>
+        </div>   
+        
+    </div>
+</div>

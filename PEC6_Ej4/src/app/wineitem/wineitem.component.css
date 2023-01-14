@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.vino{
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    width: 250px;
+    height: 400px;
+    padding: 0.5%;
+}
+
+.pieVino{
+    display: block;
+}
+
+.preu{
+    font-weight: bold;
+    font-size: 18px;
+}
+.enVenda{
+    background-color: aquamarine;
+}
+.noDisponible{
+    background-color: #cccccc;
+}
+.unitsContainer{
+    width: 95%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.units{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: medium;
+}
+.miniatura{
+    padding: 10px;
+    height: 150px;
+    border-radius: 20px;
+}
+.total{
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px;
+    text-align: center;
+}
+
+button{
+    width: 25%;
+    font-size: 18px;
+}

@@ -1,0 +1,89 @@
+<div class="nouVi">
+    
+    <h3>Crear formulario de vinos</h3>
+
+    <div class="form-group">
+    <form (ngSubmit)="createWine()" [formGroup]="wineForm" >
+            <div class="entrada">
+                <div class="etiqueta"><label for="nombre">Nombre vino</label></div>
+                <div class="quadreText">
+                    <input type="text"
+                        id="name"
+                        placeholder="Nombre vino"
+                        name="name"
+                        formControlName="name"
+                        >
+                </div>
+                <!-- Tractament errors nombre -->
+                    <div *ngIf="wineForm.get('name')?.dirty">
+                        <div class="error" *ngIf="wineForm.get('name')?.hasError('required')">
+                            Nombre obligatorio
+                        </div>
+                        <div class="error" *ngIf="wineForm.get('name')?.hasError('NoEstaEnLaLlista')">
+                            El vino no está en la lista
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <div class="entrada">
+                <div class="etiqueta"><label for="price">Precio</label></div>
+                <div class="quadreText">
+                    <input type="number"
+                        id="price"
+                        placeholder="Precio"
+                        name="price"
+                        formControlName="price"
+                        >
+                </div>
+                <!-- Tractament errors precio -->
+                <div *ngIf="wineForm.get('price')?.dirty">
+                    <div class="error" *ngIf="wineForm.get('price')?.hasError('required')">
+                        Precio obligatorio
+                    </div>
+                    <div class="error" *ngIf="wineForm.get('price')?.hasError('min')">
+                        Precio mínimo 1€
+                    </div>
+                </div>
+                </div>
+                
+            <div class="entrada">
+                <div class="etiqueta"><label for="URLimage">URL imagen</label></div>
+                <div class="quadreText">
+                    <input type="text"
+                    id="imageURL"
+                    placeholder="URL imagen"
+                    name="imageURL"
+                    formControlName="imageURL"
+                    >
+                </div>
+                <!-- Tractament errors URLimagen -->
+                <!-- <div *ngIf="wineForm.get('imageURL')?.dirty">
+                    <div class="error" *ngIf="wineForm.get('imageURL')?.hasError('required')">
+                        URL imagen obligatoria
+                    </div>
+                      <div class="error" *ngIf="wineForm.get('imageURL')?.hasError('pattern')">
+                        Formato URL incorrecto
+                    </div>
+                </div> -->
+            </div>
+            
+            <div class="entrada">
+                <div class="etiqueta"><label for="isOnSale">En venta</label></div>
+                <div class="casellaVerificacio">
+                    <input type="checkbox"
+                        value="true"
+                        id="isOnSale"
+                        name="isOnSale"
+                        formControlName="isOnSale"
+                    >
+                </div>
+            </div>
+        <div class="entrada">
+            <button
+            type="submit"
+            [disabled] = !wineForm.valid 
+            >creación</button></div>
+    </form>
+    </div>
+</div>

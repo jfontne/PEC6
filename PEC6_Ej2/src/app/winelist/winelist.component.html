@@ -1,0 +1,17 @@
+<div class="capAplicacio">
+    <h1 class="titolAplicacio">VINOTECA</h1>
+    <h2 class="tComanda"> TOTAL COMANDA: {{total.total}}</h2>
+</div>
+<div class="llistaVins">
+    <div *ngFor="let vi of wines$|async">
+        <app-wineitem 
+            (addEvento)="addGetWine($event)" 
+            (substractEvento)="substractGetWine($event)" 
+            [wine] = "vi">
+        </app-wineitem>
+        
+    </div>
+    <app-wine-new
+        (create)="createWine($event)"    
+    ></app-wine-new>
+</div>
