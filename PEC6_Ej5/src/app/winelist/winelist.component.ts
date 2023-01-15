@@ -16,7 +16,7 @@ import { debounceTime, switchMap,
 export class WinelistComponent {
 
   public wines$: Observable<Wine[]>;
-  //public total$: Observable<any>;
+  
   public total: any;
   public msg: any;
   public message:any = null;
@@ -51,8 +51,7 @@ export class WinelistComponent {
   }
   substractGetWine(e:WineQuantityChange) {
     this.SWine.changeQuantity(e.id,-1).subscribe((result: any) => {
-      this.message = result.msg;
-      //this.initializeStock();      
+      this.message = result.msg;   
     }, (err) => {
       this.message = err.error.msg;
     });

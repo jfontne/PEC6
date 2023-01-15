@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { debounceTime, switchMap,
   distinctUntilChanged, startWith,
   share } from 'rxjs/operators';
+import { NotExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-winelist',
@@ -51,8 +52,7 @@ export class WinelistComponent {
   }
   substractGetWine(e:WineQuantityChange) {
     this.SWine.changeQuantity(e.id,-1).subscribe((result: any) => {
-      this.message = result.msg;
-      //this.initializeStock();      
+      this.message = result.msg;    
     }, (err) => {
       this.message = err.error.msg;
     });
@@ -60,8 +60,7 @@ export class WinelistComponent {
   createWine(wine: Wine) {
     this.SWine.create(wine).subscribe((result: any) => {
       this.message = result.msg;
-      this.SWine.addWineList(wine);
-      //this.initializeStock();      
+      this.SWine.addWineList(wine);      
     }, (err) => {
       this.message = err.error.msg;
     });

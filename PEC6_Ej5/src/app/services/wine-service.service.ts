@@ -10,11 +10,10 @@ import { WineQuantityChange } from '../interfaces/wine-quantity-change';
 })
 export class WineServiceService {
   //public winelist: Wine[];
-  public totalComanda: string;
   public winelist:Wine[];
   
   constructor(private http: HttpClient) {
-    this.totalComanda = '0.00';
+    
     this.winelist = [];
   }
 
@@ -26,13 +25,7 @@ export class WineServiceService {
   changeQuantity(id:number,changeInQuantity:number):Observable<Wine>{
     let indexWine = this.winelist.findIndex(wine=>wine.id === id);
     this.winelist[indexWine].quantityInCart = this.winelist[indexWine].quantityInCart + changeInQuantity;
-    this.winelist[indexWine].total=this.winelist[indexWine].price * this.winelist[indexWine].quantityInCart
-    //Actualitzem el total comanda
-    let total: number = 0;
-    this.winelist.forEach(wine =>{
-      total = total + wine.total;
-    });
-    this.totalComanda =  total.toFixed(2);
+ 
     return this.http.patch<Wine>('/api/wine/' + id,{
       changeInQuantity: changeInQuantity
     });
@@ -40,14 +33,17 @@ export class WineServiceService {
 
   
   create(wine:Wine):Observable<any>{
-    console.log(wine);
+    
     return this.http.post('/api/wine',wine)
   }
 
   putWines(w:Wine[]){
+      //posem tots els vins en un array
       this.winelist=w;
   }
   addWineList(w:Wine){
+    //afegim el vi al nostre array, ho fem per tenir la info local en pantalla
+    //actualitzada
     w.id = this.winelist.length + 1;
     this.winelist.push(w);
   }
