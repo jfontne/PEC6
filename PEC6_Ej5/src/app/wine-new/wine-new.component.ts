@@ -26,7 +26,7 @@ constructor(private fb:FormBuilder){
 }
 createWine() {
   let valors = this.wineForm.value;
-  let Nwine:Wine = {id: 0,name: valors.name,imageUrl: `assets/images/${valors.imageURL}`, price: valors.price, isOnSale: valors.isOnSale, quantityInCart: 1, total: valors.price, foodPairing: []}
+  let Nwine:Wine = {id: 0,name: valors.name,imageUrl: `assets/images/${valors.imageURL}`, price: valors.price, isOnSale: valors.isOnSale, quantityInCart: 0, total: valors.price, foodPairing: []}
   console.log(Nwine);
   this.create.emit(Nwine);
 }
