@@ -30,7 +30,4 @@ createWine() {
   Nwine = new Wine(0,valors.name,valors.imageURL,valors.price,valors.isOnSale,1,valors.price,[])
   this.create.emit(Nwine);
 }
-
-
-
 }

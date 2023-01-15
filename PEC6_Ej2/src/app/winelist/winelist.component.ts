@@ -3,7 +3,6 @@ import { Wine } from '../models/wine';
 import { WineQuantityChange } from '../interfaces/wine-quantity-change';
 import { Observable } from 'rxjs';
 import { WineServiceService } from '../services/wine-service.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-winelist',

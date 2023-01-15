@@ -2,7 +2,7 @@
     <div class="vino"
     [ngClass] = 'wineClasses' 
     *ngIf="wine!==null">
-        <img class="miniatura" src="{{'assets/img/' + wine.imageUrl}}" alt='{{wine.name}}'>
+        <img class="miniatura" src="{{'assets/images/' + wine.imageUrl}}" alt='{{wine.name}}'>
         <h2>{{wine.name}}</h2>
         <p class="preu">Preu: {{wine.price.toFixed(2)}}</p>
         <div *ngIf="wine.isOnSale" class="pieVino">
