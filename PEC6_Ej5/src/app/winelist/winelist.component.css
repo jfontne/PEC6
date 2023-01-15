@@ -23,3 +23,10 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+input{
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    font-size: 14pt;
+}
